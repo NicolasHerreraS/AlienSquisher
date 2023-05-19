@@ -16,13 +16,15 @@ public class Spaceship : MonoBehaviour
 
     //Temporizador para la creación de Aliens
     public float frecuenciaDeAliens = 10.0f;
+    public float tiempoDeEspera = 0.0f;
     float temporizador;
+    //Determina si la nave continúa creando aliens
+    public bool continua;
 
     // Esta función se llama antes del primer fotograma
     void Start()
     {
-        temporizador = frecuenciaDeAliens;
-        CrearAlien();
+        temporizador = tiempoDeEspera;
     }
 
     //Crear alien en una ubicación con un objetivo
@@ -47,7 +49,7 @@ public class Spaceship : MonoBehaviour
     // Esta función se llama cada fotograma
     void Update()
     {
-        descontarTiempo();
+        if(continua) descontarTiempo();
     }
 
     //Descontar tiempo del temporizador, crear un alien y reiniciarlo cuando este llegue a cero.
